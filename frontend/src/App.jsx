@@ -1,13 +1,11 @@
-
 import './App.css'
+import Sidebar from './components/sidebar/Sidebar.jsx'
 
 function App() {
 
   return (
     <div>
-      <div className='bg-amber-600'>
-        hiii
-      </div>
+      <Sidebar/>
     </div>
   )
 }
