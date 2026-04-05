@@ -4,7 +4,7 @@ import uiReducer from "./UiSlice.js"
 
 export const store = configureStore({
     reducer: {
-        transaction : TransactionReducer,
+        transactions : TransactionReducer,
         ui : uiReducer
     }
 })

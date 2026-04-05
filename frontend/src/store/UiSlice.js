@@ -1,35 +1,38 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    filters: {
-        type: 'all',
-        category: 'all'
-    },
-    role: 'viewer'
-}
+  filters: {
+    type: "all",
+    category: "all"
+  },
+  role: "viewer",
+  isSidebarOpen: false
+};
 
 export const uiSlice = createSlice({
-    name: 'ui',
-    initialState,
-    reducers: {
-        setFilter: (state, action) => {
-            if (action.payload.type !== undefined) {
-                state.filters.type = action.payload.type
-            }
-            if (action.payload.category !== undefined) {
-                state.filters.category = action.payload.category
-            }
-        },
+  name: "ui",
+  initialState,
+  reducers: {
+    setFilter: (state, action) => {
+      const { type, category } = action.payload;
 
-        setRole: (state, action) => {
-            const allowedRoles = ['viewer', 'admin']
-            if (allowedRoles.includes(action.payload)) {
-                state.role = action.payload
-            }
-        },
+      if (type !== undefined) state.filters.type = type;
+      if (category !== undefined) state.filters.category = category;
+    },
+
+    setRole: (state, action) => {
+      const allowedRoles = ["viewer", "admin"];
+      if (allowedRoles.includes(action.payload)) {
+        state.role = action.payload;
+      }
+    },
+
+    // ✅ Single source of truth
+    toggleSidebar: (state) => {
+      state.isSidebarOpen = !state.isSidebarOpen;
     }
-})
+  }
+});
 
-export const { setFilter, setRole } = uiSlice.actions
-export default uiSlice.reducer
-    
+export const { setFilter, setRole, toggleSidebar } = uiSlice.actions;
+export default uiSlice.reducer;

@@ -1,12 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { mockTransactions } from '../data/mockData.js'
 
 const initialState = {
-    transactions : [],
-    filters: {
-        type: 'all',
-        category: 'all'
-    },
-    role : 'viewer' 
+    transactions : mockTransactions,
 }
 
 export const TransactionSlice = createSlice({
@@ -24,7 +20,7 @@ export const TransactionSlice = createSlice({
                         date: transaction.date || new Date().toISOString(),
                         amount: Number(transaction.amount),
                         type: transaction.type,
-                        category:transaction.type,
+                        category:transaction.category,
                         note: transaction.note || ''
                     }
                 }

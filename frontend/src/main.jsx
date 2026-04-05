@@ -4,11 +4,16 @@ import App from './App.jsx'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
 import { Provider } from "react-redux"
 import { store } from './store/store.js'
+import Dashboard from './pages/Dashboard.jsx'
+import Transactions from './pages/Transactions.jsx'
+import Insights from './pages/Insights.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element= {<App />}>
-    
+      <Route index element = {<Dashboard/>}/>
+      <Route path = 'Transactions' element = {<Transactions/>}/>
+      <Route path = 'Insights' element = {<Insights/>}/>
     </Route>
   )
 )
