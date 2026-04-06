@@ -66,12 +66,12 @@ function TransactionTable() {
 }, [transactions]);
 
     return (
-        <div className='rounded-2xl border border-[var(--color-muted)] bg-[var(--color-surface)] p-4 shadow-[0_2px_8px_rgba(0,0,0,0.05)] sm:p-6'>
+        <div className='rounded-2xl border border-(--color-muted) bg-(--color-surface) p-4 shadow-[0_2px_8px_rgba(0,0,0,0.05)] sm:p-6'>
             <div className='mb-4 flex flex-wrap gap-3'>
                 <input
                     type="text"
                     placeholder='search...'
-                    className='h-10 min-w-44 rounded-xl border border-[var(--color-muted)] bg-[var(--color-surface)] px-3 text-[var(--color-text)] outline-none transition duration-200 placeholder:text-[color-mix(in_srgb,var(--color-text)_50%,transparent)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_20%,transparent)]'
+                    className='h-10 min-w-44 rounded-xl border border-(--color-muted) bg-(--color-surface) px-3 text-(--color-text) outline-none transition duration-200 placeholder:text-[color-mix(in_srgb,var(--color-text)_50%,transparent)] focus:border-(--color-primary) focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_20%,transparent)]'
                     onChange={(e) => {
                         setSearch(e.target.value);
                         setPage(0);
@@ -79,7 +79,7 @@ function TransactionTable() {
                 />
 
                 <select
-  className='h-10 min-w-36 rounded-xl border border-[var(--color-muted)] bg-[var(--color-surface)] px-3 text-[var(--color-text)] outline-none transition duration-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_20%,transparent)]'
+  className='h-10 min-w-36 rounded-xl border border-(--color-muted) bg-(--color-surface) px-3 text-(--color-text) outline-none transition duration-200 focus:border-(--color-primary) focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_20%,transparent)]'
   onChange={(e) =>
     dispatch(setFilter({ category: e.target.value }))
   }
@@ -94,7 +94,7 @@ function TransactionTable() {
 </select>
 
                 <select
-                    className='h-10 min-w-36 rounded-xl border border-[var(--color-muted)] bg-[var(--color-surface)] px-3 text-[var(--color-text)] outline-none transition duration-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_20%,transparent)]'
+                    className='h-10 min-w-36 rounded-xl border border-(--color-muted) bg-(--color-surface) px-3 text-(--color-text) outline-none transition duration-200 focus:border-(--color-primary) focus:ring-2 focus:ring-[color-mix(in_srgb,var(--color-primary)_20%,transparent)]'
                     onChange={(e) =>
                         dispatch(setFilter({ type: e.target.value }))
                     }
@@ -108,12 +108,12 @@ function TransactionTable() {
                 <p className='py-4 text-[color-mix(in_srgb,var(--color-text)_70%,transparent)]'>No transactions found</p>
             ) : (
                 <div className='overflow-x-auto'>
-                    <table className="min-w-[720px] w-full border-separate border-spacing-0">
+                    <table className="min-w-180 w-full border-separate border-spacing-0">
                     <thead className="bg-[color-mix(in_srgb,var(--color-muted)_35%,transparent)]">
                         <tr>
                             <th
                                 onClick={() => handleSort("date")}
-                                className="cursor-pointer select-none border-b border-[var(--color-muted)] p-3 text-left font-semibold text-[color-mix(in_srgb,var(--color-text)_85%,transparent)]"
+                                className="cursor-pointer select-none border-b border-(--color-muted) p-3 text-left font-semibold text-[color-mix(in_srgb,var(--color-text)_85%,transparent)]"
                             >
                                 Date{" "}
                                 {sortBy === "date"
@@ -123,12 +123,12 @@ function TransactionTable() {
                                     : ""}
                             </th>
 
-                            <th className="border-b border-[var(--color-muted)] p-3 text-left font-semibold text-[color-mix(in_srgb,var(--color-text)_85%,transparent)]">Description</th>
-                            <th className="border-b border-[var(--color-muted)] p-3 text-left font-semibold text-[color-mix(in_srgb,var(--color-text)_85%,transparent)]">Category</th>
+                            <th className="border-b border-(--color-muted) p-3 text-left font-semibold text-[color-mix(in_srgb,var(--color-text)_85%,transparent)]">Description</th>
+                            <th className="border-b border-(--color-muted) p-3 text-left font-semibold text-[color-mix(in_srgb,var(--color-text)_85%,transparent)]">Category</th>
 
                             <th
                                 onClick={() => handleSort("amount")}
-                                className="cursor-pointer select-none border-b border-[var(--color-muted)] p-3 text-right font-semibold text-[color-mix(in_srgb,var(--color-text)_85%,transparent)]"
+                                className="cursor-pointer select-none border-b border-(--color-muted) p-3 text-right font-semibold text-[color-mix(in_srgb,var(--color-text)_85%,transparent)]"
                             >
                                 Amount{" "}
                                 {sortBy === "amount"
@@ -138,30 +138,30 @@ function TransactionTable() {
                                     : ""}
                             </th>
 
-                            {role === "admin" && <th className="border-b border-[var(--color-muted)] p-3 text-right font-semibold text-[color-mix(in_srgb,var(--color-text)_85%,transparent)]">Actions</th>}
+                            {role === "admin" && <th className="border-b border-(--color-muted) p-3 text-right font-semibold text-[color-mix(in_srgb,var(--color-text)_85%,transparent)]">Actions</th>}
                         </tr>
                     </thead>
 
                     <tbody>
                         {paginated.map((t) => (
                             <tr key={t.id} className="group odd:bg-transparent even:bg-[color-mix(in_srgb,var(--color-muted)_20%,transparent)] hover:bg-[color-mix(in_srgb,var(--color-muted)_40%,transparent)] transition-colors duration-200">
-                                <td className='border-b border-[var(--color-muted)] p-3'>{new Date(t.date).toLocaleDateString()}</td>
-                                <td className='border-b border-[var(--color-muted)] p-3'>{t.note}</td>
-                                <td className='border-b border-[var(--color-muted)] p-3'>{t.category}</td>
+                                <td className='border-b border-(--color-muted) p-3'>{new Date(t.date).toLocaleDateString()}</td>
+                                <td className='border-b border-(--color-muted) p-3'>{t.note}</td>
+                                <td className='border-b border-(--color-muted) p-3'>{t.category}</td>
 
                                 <td
                                     className={
                                         t.type === "income"
-                                            ? "border-b border-[var(--color-muted)] p-3 text-right font-medium text-[var(--color-success)]"
-                                            : "border-b border-[var(--color-muted)] p-3 text-right font-medium text-[var(--color-danger)]"
+                                            ? "border-b border-(--color-muted) p-3 text-right font-medium text-(--color-success)"
+                                            : "border-b border-(--color-muted) p-3 text-right font-medium text-(--color-danger)"
                                     }
                                 >
                                     {t.type === "income" ? "+" : "-"}₹{t.amount}
                                 </td>
                                 {role === "admin" && (
-                                    <td className='border-b border-[var(--color-muted)] p-3 text-right'>
+                                    <td className='border-b border-(--color-muted) p-3 text-right'>
                                         <button
-                                            className='inline-flex h-8 w-8 translate-y-0.5 items-center justify-center rounded-xl text-[color-mix(in_srgb,var(--color-text)_60%,transparent)] opacity-0 transition duration-200 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-[color-mix(in_srgb,var(--color-danger)_15%,transparent)] hover:text-[var(--color-danger)]'
+                                            className='inline-flex h-8 w-8 translate-y-0.5 items-center justify-center rounded-xl text-[color-mix(in_srgb,var(--color-text)_60%,transparent)] opacity-0 transition duration-200 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-[color-mix(in_srgb,var(--color-danger)_15%,transparent)] hover:text-(--color-danger)'
                                             onClick={() =>
                                                 dispatch(deleteTransaction(t.id))
                                             }
@@ -188,8 +188,8 @@ function TransactionTable() {
                             onClick={() => setPage(i)}
                             className={`rounded-xl border px-3 py-1.5 transition duration-200 hover:-translate-y-px active:scale-[0.98]
           ${page === i
-                                    ? "border-[var(--color-primary)] bg-[var(--color-primary)] font-semibold text-white"
-                                    : "border-[var(--color-muted)] bg-[var(--color-surface)] text-[var(--color-text)] hover:bg-[color-mix(in_srgb,var(--color-muted)_55%,transparent)]"}
+                                    ? "border-(--color-primary) bg-(--color-primary) font-semibold text-white"
+                                    : "border-(--color-muted) bg-(--color-surface) text-(--color-text) hover:bg-[color-mix(in_srgb,var(--color-muted)_55%,transparent)]"}
         `}
                         >
                             {i + 1}

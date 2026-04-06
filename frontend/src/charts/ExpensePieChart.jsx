@@ -95,7 +95,7 @@ function ExpensePieChart() {
                 />
                 <span
                   className={
-                    isActive ? "text-[var(--color-text)]" : "text-[color-mix(in_srgb,var(--color-text)_75%,transparent)]"
+                    isActive ? "text-(--color-text)" : "text-[color-mix(in_srgb,var(--color-text)_75%,transparent)]"
                   }
                 >
                   {item.name}

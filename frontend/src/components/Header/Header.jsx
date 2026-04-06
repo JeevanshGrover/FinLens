@@ -22,7 +22,7 @@ function Header() {
   const dispatch = useDispatch();
   const role = useSelector((state) => state.ui.role)
   return (
-    <div className="sticky top-0 z-30 flex items-center justify-between border-b border-[var(--color-muted)] bg-[color-mix(in_srgb,var(--color-surface)_95%,transparent)] px-6 py-4 backdrop-blur-sm">
+    <div className="sticky top-0 z-30 flex items-center justify-between border-b border-(--color-muted) bg-[color-mix(in_srgb,var(--color-surface)_95%,transparent)] px-6 py-4 backdrop-blur-sm">
 
       {/* Left */}
       <div className="flex min-w-0 items-center gap-4">
@@ -41,15 +41,15 @@ function Header() {
       </div>
 
       <div className="flex items-center gap-3">
-        <span className="rounded-full bg-[var(--color-muted)] px-3 py-1 text-sm capitalize text-[var(--color-text)]">
+        <span className="rounded-full bg-(--color-muted) px-3 py-1 text-sm capitalize text-(--color-text)">
           {role}
         </span>
 
-        <div className="flex w-[100px] justify-end">
+        <div className="flex w-25 justify-end">
           {role === "admin" && (
             <button
               onClick={() => dispatch(toggleModal(true))}
-              className="w-full rounded-xl bg-[var(--color-primary)] px-4 py-2 text-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] transition duration-200 hover:-translate-y-px hover:brightness-95 active:scale-[0.98]"
+              className="w-full rounded-xl bg-(--color-primary) px-4 py-2 text-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] transition duration-200 hover:-translate-y-px hover:brightness-95 active:scale-[0.98]"
             >
               + Add
             </button>
